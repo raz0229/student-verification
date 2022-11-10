@@ -19,6 +19,21 @@ Ctrl + P to Run program from task dependencies
   const int WINDOW_WIDTH = 880;
   const int WINDOW_HEIGHT = 820;
 
+  VideoCapture cap(0); // open the video camera no. 0  
+   // cap.set(CV_CAP_PROP_FRAME_WIDTH,800);  
+   // cap.set(CV_CAP_PROP_FRAME_HEIGHT,640);  
+   if (!cap.isOpened()) // if not success, exit program  
+   {  
+     cout << "Cannot open the video cam" << endl;  
+     return -1;  
+   }  
+   ImageScanner scanner;   
+    scanner.set_config(ZBAR_NONE, ZBAR_CFG_ENABLE, 1);   
+   double dWidth = cap.get(CAP_PROP_FRAME_WIDTH); //get the width of frames of the video  
+   double dHeight = cap.get(CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video  
+   cout << "Frame size : " << dWidth << " x " << dHeight << endl;  
+   namedWindow("QR Detection",WINDOW_AUTOSIZE); //create a window 
+
 // -------------------------------------------------------
 // -------------------------------------------------------
 // -------------------------------------------------------
@@ -67,36 +82,9 @@ btn1.setPosition({ 350, 670 });
 					      btn1.setBackColor(sf::Color::Cyan);
             else
                 btn1.setBackColor(sf::Color::Blue);
-        }
-
-        window.clear(sf::Color::White);
-        window.draw(text);
-        window.draw(sprite);
-        window.draw(sp2);
-        btn1.drawTo(window);
-        window.display();
-    }
-// -------------------------------------------------------
-// -------------------------------------------------------
-// -------------------------------------------------------
-// -------------------------------------------------------
-
-
-   VideoCapture cap(0); // open the video camera no. 0  
-   // cap.set(CV_CAP_PROP_FRAME_WIDTH,800);  
-   // cap.set(CV_CAP_PROP_FRAME_HEIGHT,640);  
-   if (!cap.isOpened()) // if not success, exit program  
-   {  
-     cout << "Cannot open the video cam" << endl;  
-     return -1;  
-   }  
-   ImageScanner scanner;   
-    scanner.set_config(ZBAR_NONE, ZBAR_CFG_ENABLE, 1);   
-   double dWidth = cap.get(CAP_PROP_FRAME_WIDTH); //get the width of frames of the video  
-   double dHeight = cap.get(CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video  
-   cout << "Frame size : " << dWidth << " x " << dHeight << endl;  
-   namedWindow("QR Detection",WINDOW_AUTOSIZE); //create a window 
-   while (1)  
+            if (event.type == sf::Event::MouseButtonPressed) {
+              if (btn1.isMouseOver(window)) {
+                while (1)  
    {  
      Mat frame;  
      bool bSuccess = cap.read(frame); // read a new frame from video  
@@ -140,5 +128,23 @@ btn1.setPosition({ 350, 670 });
        break;   
      }  
    }  
+              }
+            }
+        }
+
+        window.clear(sf::Color::White);
+        window.draw(text);
+        window.draw(sprite);
+        window.draw(sp2);
+        btn1.drawTo(window);
+        window.display();
+    }
+// -------------------------------------------------------
+// -------------------------------------------------------
+// -------------------------------------------------------
+// -------------------------------------------------------
+
+
+  
    return 0;  
  }  
