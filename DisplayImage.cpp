@@ -15,8 +15,46 @@ Ctrl + P to Run program from task dependencies
  {  
 
 // -------------------------------------------------------
-sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
 // -------------------------------------------------------
+// -------------------------------------------------------
+// -------------------------------------------------------
+sf::RenderWindow window(sf::VideoMode(1280, 720), "Student Verification System");
+
+    sf::Font font;
+    sf::Text text;
+if (!font.loadFromFile("arial.ttf"))
+{
+    cout << "Error loading font" << endl;
+}
+
+text.setFont(font); // font is a sf::Font
+text.setString("Hello world");
+text.setCharacterSize(24); // in pixels, not points!
+text.setFillColor(sf::Color::Black);
+text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+
+    sf::CircleShape shape(200.f);
+    shape.setFillColor(sf::Color::Red);
+
+    while (window.isOpen())
+    {
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+
+        window.clear(sf::Color::White);
+        window.draw(text);
+        window.draw(shape);
+        window.display();
+    }
+// -------------------------------------------------------
+// -------------------------------------------------------
+// -------------------------------------------------------
+// -------------------------------------------------------
+
 
    VideoCapture cap(0); // open the video camera no. 0  
    // cap.set(CV_CAP_PROP_FRAME_WIDTH,800);  
