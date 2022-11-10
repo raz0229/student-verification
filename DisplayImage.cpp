@@ -6,6 +6,8 @@ Ctrl + P to Run program from task dependencies
  #include <opencv2/imgproc/imgproc.hpp>  
  #include <SFML/Graphics.hpp>
  #include <zbar.h>  
+ #include "Textbox.h"
+#include "Button.h"
  #include <iostream>  
  using namespace cv;  
  using namespace std;  
@@ -14,27 +16,45 @@ Ctrl + P to Run program from task dependencies
  int main(int argc, char* argv[])  
  {  
 
-// -------------------------------------------------------
-// -------------------------------------------------------
-// -------------------------------------------------------
-// -------------------------------------------------------
-sf::RenderWindow window(sf::VideoMode(1280, 720), "Student Verification System");
+  const int WINDOW_WIDTH = 880;
+  const int WINDOW_HEIGHT = 820;
 
-    sf::Font font;
-    sf::Text text;
+// -------------------------------------------------------
+// -------------------------------------------------------
+// -------------------------------------------------------
+// -------------------------------------------------------
+sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Student Verification System");
+sf::Font font;
+sf::Text text;
+Button btn1("Scan Now", { 200, 50 }, 20, sf::Color::Blue, sf::Color::White);
+
+sf::Image image, pfp;
+        if (!(image.loadFromFile("nu-logo.jpg")) || !(pfp.loadFromFile("no_profile.jpg")))
+                std::cout << "Cannot load image";   //Load Image
+        
+        sf::Texture texture, t2;
+        texture.loadFromImage(image);  //Load Texture from image
+        t2.loadFromImage(pfp);
+
+        sf::Sprite sprite, sp2;
+        sprite.setTexture(texture);  
+        sp2.setTexture(t2);
+
 if (!font.loadFromFile("arial.ttf"))
 {
     cout << "Error loading font" << endl;
 }
 
 text.setFont(font); // font is a sf::Font
-text.setString("Hello world");
-text.setCharacterSize(24); // in pixels, not points!
+text.setString("Student Verification System");
+text.setCharacterSize(35); // in pixels, not points!
 text.setFillColor(sf::Color::Black);
 text.setStyle(sf::Text::Bold | sf::Text::Underlined);
-
-    sf::CircleShape shape(200.f);
-    shape.setFillColor(sf::Color::Red);
+sprite.setPosition(WINDOW_WIDTH/6.f, 20.f);
+sp2.setPosition(WINDOW_WIDTH/3.3, 300.f);
+text.setPosition((WINDOW_WIDTH/4.f), 220.f);
+btn1.setFont(font);
+btn1.setPosition({ 350, 670 });
 
     while (window.isOpen())
     {
@@ -43,11 +63,17 @@ text.setStyle(sf::Text::Bold | sf::Text::Underlined);
         {
             if (event.type == sf::Event::Closed)
                 window.close();
+            if (btn1.isMouseOver(window))
+					      btn1.setBackColor(sf::Color::Cyan);
+            else
+                btn1.setBackColor(sf::Color::Blue);
         }
 
         window.clear(sf::Color::White);
         window.draw(text);
-        window.draw(shape);
+        window.draw(sprite);
+        window.draw(sp2);
+        btn1.drawTo(window);
         window.display();
     }
 // -------------------------------------------------------

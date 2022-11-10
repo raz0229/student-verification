@@ -418,7 +418,9 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
   /usr/include/zbar/Video.h \
   /usr/include/zbar/Window.h \
   /usr/include/zbar/Processor.h \
-  /usr/include/c++/12.2.0/iostream
+  Textbox.h \
+  /usr/include/c++/12.2.0/iostream \
+  Button.h
 
 
 /usr/include/c++/12.2.0/iostream:
@@ -907,6 +909,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/local/include/opencv4/opencv2/highgui/highgui.hpp:
 
+Button.h:
+
 /usr/include/bits/types/wint_t.h:
 
 /usr/local/include/opencv4/opencv2/core/fast_math.hpp:
@@ -956,6 +960,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 /usr/include/c++/12.2.0/bits/postypes.h:
 
 /usr/include/c++/12.2.0/cwchar:
+
+Textbox.h:
 
 /usr/include/bits/posix1_lim.h:
 
