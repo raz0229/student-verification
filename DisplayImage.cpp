@@ -5,6 +5,7 @@ Ctrl + P to Run program from task dependencies
 #include <opencv2/highgui/highgui.hpp>  
  #include <opencv2/imgproc/imgproc.hpp>  
  #include <SFML/Graphics.hpp>
+ #include <string.h>
  #include <zbar.h>  
  #include "Textbox.h"
 #include "Button.h"
@@ -18,6 +19,8 @@ Ctrl + P to Run program from task dependencies
 
   const int WINDOW_WIDTH = 880;
   const int WINDOW_HEIGHT = 820;
+  bool notDetected = true;
+  string student_id;
 
   VideoCapture cap(0); // open the video camera no. 0  
    // cap.set(CV_CAP_PROP_FRAME_WIDTH,800);  
@@ -84,8 +87,9 @@ btn1.setPosition({ 350, 670 });
                 btn1.setBackColor(sf::Color::Blue);
             if (event.type == sf::Event::MouseButtonPressed) {
               if (btn1.isMouseOver(window)) {
-                while (1)  
+                while (notDetected)  
    {  
+    window.setVisible(false);
      Mat frame;  
      bool bSuccess = cap.read(frame); // read a new frame from video  
       if (!bSuccess) //if not success, break loop  
@@ -108,7 +112,11 @@ btn1.setPosition({ 350, 670 });
      ++symbol) {   
          vector<Point> vp;   
      // do something useful with results   
-     cout << "decoded " << symbol->get_type_name()  << " symbol \"" << symbol->get_data() << '"' <<" "<< endl;
+     student_id = symbol->get_data();
+     cout << "decoded " << symbol->get_type_name()  << " symbol \"" << student_id << '"' <<" "<< endl;
+      notDetected = false;   
+      window.close();
+     
 	int n = symbol->get_location_size();   
        for(int i=0;i<n;i++){   
          vp.push_back(Point(symbol->get_location_x(i),symbol->get_location_y(i)));   
@@ -121,10 +129,12 @@ btn1.setPosition({ 350, 670 });
        }   
        //cout<<"Angle: "<<r.angle<<endl;   
      }   
-     imshow("QR Detection", frame); //show the frame in "MyVideo" window  
+     imshow("QR Detection", frame); //show the frame in "QR Detection" window  
      if (waitKey(30) == 27) //wait for 'esc' key press for 30ms. If 'esc' key is pressed, break loop  
      {  
        cout << "esc key is pressed by user" << endl;  
+       destroyWindow("QR Detection");
+       window.close();
        break;   
      }  
    }  
@@ -145,6 +155,7 @@ btn1.setPosition({ 350, 670 });
 // -------------------------------------------------------
 
 
+  cout << "STUDENT ID: " << student_id;
   
    return 0;  
  }  
