@@ -13,6 +13,14 @@ body {
     background-size: cover;
 }
 
+ul {
+  pointer-events:none;
+}
+
+ul li {
+  pointer-events: all;
+}
+
 #overlay {
     position: fixed; 
     width: 100%; 
@@ -76,7 +84,6 @@ body {
   .input {
     background-color: #303245;
     border-radius: 12px;
-    border: 0;
     box-sizing: border-box;
     color: #eee;
     font-size: 18px;
@@ -98,6 +105,15 @@ body {
     width: 76px;
   }
   
+.error {
+  color: #dc2f55;
+  font-size: 15px;
+  display: none;
+  padding: 10px;
+  text-align: center;
+  margin-bottom: 100px;
+}
+
   .cut-short {
     width: 50px;
   }
@@ -141,7 +157,7 @@ body {
     cursor: pointer;
     font-size: 18px;
     height: 50px;
-    margin-top: 38px;
+    margin-top: 53px;
     outline: 0;
     text-align: center;
     width: 100%;
