@@ -13,7 +13,6 @@ Ctrl + P to Run program from task dependencies
  using namespace cv;  
  using namespace std;  
  using namespace zbar;  
- //g++ main.cpp /usr/local/include/ /usr/local/lib/ -lopencv_highgui.2.4.8 -lopencv_core.2.4.8  
  int main(int argc, char* argv[])  
  {  
 
@@ -22,12 +21,10 @@ Ctrl + P to Run program from task dependencies
   bool notDetected = true;
   string student_id;
 
-  VideoCapture cap(0); // open the video camera no. 0  
-   // cap.set(CV_CAP_PROP_FRAME_WIDTH,800);  
-   // cap.set(CV_CAP_PROP_FRAME_HEIGHT,640);  
+  VideoCapture cap(0);
    if (!cap.isOpened()) // if not success, exit program  
    {  
-     cout << "Cannot open the video cam" << endl;  
+     cout << "Error opening webcam" << endl;  
      return -1;  
    }  
    ImageScanner scanner;   
