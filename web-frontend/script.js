@@ -1,7 +1,32 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js'
 import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js'
 
-      const firebaseConfig = {
+const toggleModal = () => {
+    document.querySelector('#modal-overlay').classList.toggle('hidden')
+    document.querySelector('.qr').classList.toggle('hidden')
+
+    let min, sec;
+
+    setInterval(()=>{
+        const n = new Date().getTime() - (parseInt(localStorage.getItem('created'))*1000)
+        const seconds = n/1000
+
+        min = 30 - Math.floor(seconds/60)
+        sec = 60 - Math.floor(seconds%60)
+
+        if (min < 0) {
+            min = '00';
+            sec = '00';
+        }
+
+        document.querySelector('#min').innerText = min;
+        document.querySelector('#sec').innerText = sec;
+        
+
+    },1000)
+}
+
+const firebaseConfig = {
     apiKey: "AIzaSyB4hl9a1RPB_MmuqPm_zNmO49Y20qSf9e4",
     authDomain: "stoked-sun-304807.firebaseapp.com",
     projectId: "stoked-sun-304807",
@@ -13,6 +38,18 @@ import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/fireb
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+const N = new Date().getTime() - (parseInt(localStorage?.getItem('created'))*1000)
+const SECONDS = N/1000
+const MIN = 30 - Math.floor(SECONDS/60)
+
+if (MIN > 0) {
+    if (localStorage.getItem('roll'))
+    toggleModal();
+} else {
+    localStorage.removeItem('roll')
+    localStorage.removeItem('created')
+}
 
 let selected, roll;
 
@@ -42,13 +79,18 @@ document.querySelector('.submit').addEventListener('click', async (e)=> {
         const docSnap = await getDoc(docRef);
 
         if (docSnap.exists()) {
+            let created = Math.floor((new Date().getTime())/1000);
             await setDoc(docRef, {
                 name: docSnap.data().name,
                 reason: selected,
-                created: Math.floor((new Date().getTime())/1000) });
+                created });
+
+            localStorage.setItem("created", created);
+            localStorage.setItem("roll", roll.trim().slice(-4));
+
+            toggleModal();
 
         } else {
-            console.log("No such document!");
             document.querySelector('.error').style.display = 'block'
         }
 

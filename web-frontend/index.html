@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAST Gate Pass</title>
     <link rel="stylesheet" href="./style.css">
-    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script type="module" src="./script.js" defer></script>
 </head>
 <body>
     <div id="overlay"></div>
+    <div id="modal-overlay" class="hidden"></div>
+    <div class="qr hidden">
+      <h3>Scan Me</h3>
+      <div class="qr-code"></div>
+      <h4>Valid Till: <span id="min">22</span>:<span id="sec">30</span></h4>
+    </div>
     <div class="form">
         <div class="logo">
             <img src="./assets/nu-logo.png" alt="FAST Logo">
@@ -49,4 +55,14 @@
         © Copyright <span id="year"></span> FAST CFD. All rights reserved.
     </p>
 </body>
+<script>
+   var qrcode = new QRCode(document.querySelector(".qr-code"), {
+        text: `${localStorage.getItem('roll')}`,
+        width: 250, //default 128
+        height: 250,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+</script>
 </html>
