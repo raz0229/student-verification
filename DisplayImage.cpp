@@ -39,35 +39,57 @@ Ctrl + P to Run program from task dependencies
 // -------------------------------------------------------
 // -------------------------------------------------------
 sf::RenderWindow window(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Student Verification System");
-sf::Font font;
-sf::Text text;
+sf::Font font, font2;
+sf::Text text, statusText, name, roll, reason;
 Button btn1("Scan Now", { 200, 50 }, 20, sf::Color::Blue, sf::Color::White);
 
-sf::Image image, pfp;
-        if (!(image.loadFromFile("nu-logo.jpg")) || !(pfp.loadFromFile("no_profile.jpg")))
+sf::Image image, pfp, allowed, notAllowed;
+        if (!(image.loadFromFile("nu-logo.jpg")) || !(pfp.loadFromFile("no_profile.jpg")) || !(allowed.loadFromFile("allowed.jpg")) || !(notAllowed.loadFromFile("not_allowed.jpg")) )
                 std::cout << "Cannot load image";   //Load Image
         
-        sf::Texture texture, t2;
+        sf::Texture texture, t2, al, nal;
         texture.loadFromImage(image);  //Load Texture from image
         t2.loadFromImage(pfp);
+        al.loadFromImage(allowed);
+        nal.loadFromImage(notAllowed);
 
-        sf::Sprite sprite, sp2;
+        sf::Sprite sprite, sp2, spa, spn;
         sprite.setTexture(texture);  
         sp2.setTexture(t2);
+        spa.setTexture(al);
+        spn.setTexture(nal);
 
-if (!font.loadFromFile("arial.ttf"))
+if (!font.loadFromFile("arial.ttf") || !(font2.loadFromFile("quicksand.ttf")))
 {
     cout << "Error loading font" << endl;
 }
 
-text.setFont(font); // font is a sf::Font
+text.setFont(font);
+name.setFont(font2);
+roll.setFont(font2);
+reason.setFont(font2);
+statusText.setFont(font);
 text.setString("Student Verification System");
-text.setCharacterSize(35); // in pixels, not points!
+text.setCharacterSize(35); // in pixels
+statusText.setCharacterSize(40);
+roll.setCharacterSize(25);
+name.setCharacterSize(35);
+reason.setCharacterSize(25);
 text.setFillColor(sf::Color::Black);
 text.setStyle(sf::Text::Bold | sf::Text::Underlined);
+roll.setStyle(sf::Text::Bold);
+name.setStyle(sf::Text::Bold);
+reason.setStyle(sf::Text::Bold);
+statusText.setStyle(sf::Text::Bold | sf::Text::Underlined);
 sprite.setPosition(WINDOW_WIDTH/6.f, 20.f);
 sp2.setPosition(WINDOW_WIDTH/3.3, 300.f);
+spa.setPosition(WINDOW_WIDTH/3.3, 300.f);
+spn.setPosition(WINDOW_WIDTH/3.3, 300.f);
 text.setPosition((WINDOW_WIDTH/4.f), 220.f);
+statusText.setPosition(650.f, 670.f);
+roll.setPosition(20.f, 670.f);
+name.setPosition(20.f, 700.f);
+reason.setPosition(20.f, 740.f);
 btn1.setFont(font);
 btn1.setPosition({ 350, 670 });
 
@@ -86,7 +108,8 @@ btn1.setPosition({ 350, 670 });
               if (btn1.isMouseOver(window)) {
                 while (notDetected)  
    {  
-    window.setVisible(false);
+    //window.setVisible(false);
+    window.close();
      Mat frame;  
      bool bSuccess = cap.read(frame); // read a new frame from video  
       if (!bSuccess) //if not success, break loop  
@@ -112,7 +135,7 @@ btn1.setPosition({ 350, 670 });
      student_id = symbol->get_data();
      cout << "decoded " << symbol->get_type_name()  << " symbol \"" << student_id << '"' <<" "<< endl;
       notDetected = false;   
-      window.close();
+      //window.close();
      
 	int n = symbol->get_location_size();   
        for(int i=0;i<n;i++){   
@@ -151,8 +174,36 @@ btn1.setPosition({ 350, 670 });
 // -------------------------------------------------------
 // -------------------------------------------------------
 
-
   cout << "STUDENT ID: " << student_id;
+  destroyAllWindows();
+  sf::RenderWindow window2(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Student Verification System");
+  
+  // if not allowed
+  Button btn2("Valid Till: 22:30", { 200, 50 }, 20, sf::Color::Red, sf::Color::White);
+  btn2.setFont(font);
+  btn2.setPosition({ 335, 800 });
+
+  statusText.setString("Not Allowed");
+  statusText.setFillColor(sf::Color::Red);
+  name.setString("Muhammad Abdullah Zafar");
+  name.setFillColor(sf::Color::Black);
+  roll.setString("22F-3777");
+  roll.setFillColor(sf::Color::Black);
+  reason.setString("Medicine");
+  reason.setFillColor(sf::Color::Black);
+
+  while(window2.isOpen()) {
+    window2.clear(sf::Color::White);
+  window2.draw(text);
+  window2.draw(sprite);
+  window2.draw(spn);
+  window2.draw(statusText);
+  window2.draw(name);
+  window2.draw(roll);
+  window2.draw(reason);
+  btn2.drawTo(window2);
+  window2.display();
+  }
   
    return 0;  
  }  
