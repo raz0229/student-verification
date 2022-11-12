@@ -420,8 +420,107 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
   /usr/include/zbar/Processor.h \
   Textbox.h \
   /usr/include/c++/12.2.0/iostream \
-  Button.h
+  Button.h \
+  pstreams/pstream.h \
+  /usr/include/sys/wait.h \
+  /usr/include/signal.h \
+  /usr/include/bits/signum-generic.h \
+  /usr/include/bits/signum-arch.h \
+  /usr/include/bits/types/sig_atomic_t.h \
+  /usr/include/bits/types/siginfo_t.h \
+  /usr/include/bits/types/__sigval_t.h \
+  /usr/include/bits/siginfo-arch.h \
+  /usr/include/bits/siginfo-consts.h \
+  /usr/include/bits/siginfo-consts-arch.h \
+  /usr/include/bits/types/sigval_t.h \
+  /usr/include/bits/types/sigevent_t.h \
+  /usr/include/bits/sigevent-consts.h \
+  /usr/include/bits/sigaction.h \
+  /usr/include/bits/sigcontext.h \
+  /usr/include/bits/types/stack_t.h \
+  /usr/include/sys/ucontext.h \
+  /usr/include/bits/sigstack.h \
+  /usr/include/bits/sigstksz.h \
+  /usr/include/unistd.h \
+  /usr/include/bits/posix_opt.h \
+  /usr/include/bits/environments.h \
+  /usr/include/bits/confname.h \
+  /usr/include/bits/getopt_posix.h \
+  /usr/include/bits/getopt_core.h \
+  /usr/include/bits/unistd_ext.h \
+  /usr/include/linux/close_range.h \
+  /usr/include/bits/ss_flags.h \
+  /usr/include/bits/types/struct_sigstack.h \
+  /usr/include/bits/sigthread.h \
+  /usr/include/bits/signal_ext.h \
+  /usr/include/bits/types/idtype_t.h \
+  /usr/include/sys/ioctl.h \
+  /usr/include/bits/ioctls.h \
+  /usr/include/asm/ioctls.h \
+  /usr/include/asm-generic/ioctls.h \
+  /usr/include/linux/ioctl.h \
+  /usr/include/asm/ioctl.h \
+  /usr/include/asm-generic/ioctl.h \
+  /usr/include/bits/ioctl-types.h \
+  /usr/include/sys/ttydefaults.h \
+  /usr/include/fcntl.h \
+  /usr/include/bits/fcntl.h \
+  /usr/include/bits/fcntl-linux.h \
+  /usr/include/bits/types/struct_iovec.h \
+  /usr/include/linux/falloc.h \
+  /usr/include/bits/stat.h \
+  /usr/include/bits/struct_stat.h
 
+
+/usr/include/bits/struct_stat.h:
+
+/usr/include/bits/stat.h:
+
+/usr/include/bits/types/struct_iovec.h:
+
+/usr/include/bits/fcntl-linux.h:
+
+/usr/include/bits/fcntl.h:
+
+/usr/include/sys/ttydefaults.h:
+
+/usr/include/bits/ioctl-types.h:
+
+/usr/include/asm-generic/ioctl.h:
+
+/usr/include/asm/ioctls.h:
+
+/usr/include/bits/ss_flags.h:
+
+/usr/include/linux/close_range.h:
+
+/usr/include/linux/falloc.h:
+
+/usr/include/bits/unistd_ext.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/unistd.h:
+
+/usr/include/bits/types/stack_t.h:
+
+/usr/include/bits/sigcontext.h:
+
+/usr/include/bits/sigaction.h:
+
+/usr/include/bits/types/sigevent_t.h:
+
+/usr/include/bits/siginfo-consts.h:
+
+/usr/include/bits/siginfo-arch.h:
+
+/usr/include/bits/types/siginfo_t.h:
+
+/usr/include/bits/signum-arch.h:
+
+/usr/include/fcntl.h:
+
+/usr/include/sys/wait.h:
 
 /usr/include/c++/12.2.0/iostream:
 
@@ -439,9 +538,15 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/include/c++/12.2.0/bits/stl_tree.h:
 
+/usr/include/bits/sigevent-consts.h:
+
 /usr/include/c++/12.2.0/map:
 
+/usr/include/bits/posix_opt.h:
+
 /usr/include/SFML/Graphics/Texture.hpp:
+
+/usr/include/asm-generic/ioctls.h:
 
 /usr/include/SFML/Graphics/ConvexShape.hpp:
 
@@ -460,6 +565,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 /usr/include/SFML/Graphics/CircleShape.hpp:
 
 /usr/include/SFML/Graphics/Export.hpp:
+
+/usr/include/bits/types/struct_sigstack.h:
 
 /usr/include/SFML/Graphics/BlendMode.hpp:
 
@@ -507,6 +614,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/include/c++/12.2.0/bits/locale_facets_nonio.tcc:
 
+/usr/include/sys/ioctl.h:
+
 /usr/include/c++/12.2.0/bits/codecvt.h:
 
 /usr/include/c++/12.2.0/bits/locale_facets_nonio.h:
@@ -533,6 +642,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp:
 
+/usr/include/bits/siginfo-consts-arch.h:
+
 /usr/include/SFML/Graphics/Color.hpp:
 
 /usr/include/SFML/System.hpp:
@@ -557,11 +668,15 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/include/c++/12.2.0/bits/erase_if.h:
 
+/usr/include/bits/getopt_core.h:
+
 /usr/include/c++/12.2.0/bits/unordered_map.h:
 
 /usr/include/c++/12.2.0/bits/node_handle.h:
 
 /usr/include/c++/12.2.0/bits/enable_special_members.h:
+
+/usr/include/asm/ioctl.h:
 
 /usr/include/c++/12.2.0/bits/hashtable.h:
 
@@ -625,6 +740,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/include/bits/waitflags.h:
 
+/usr/include/signal.h:
+
 /usr/include/SFML/Graphics/View.hpp:
 
 /usr/include/SFML/Graphics/Transformable.hpp:
@@ -647,11 +764,15 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/include/bits/xopen_lim.h:
 
+/usr/include/bits/sigstack.h:
+
 /usr/include/c++/12.2.0/backward/binders.h:
 
 /usr/include/SFML/Graphics/Glsl.hpp:
 
 /usr/include/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/bits/sigstksz.h:
 
 /usr/lib/gcc/x86_64-pc-linux-gnu/12.2.0/include-fixed/syslimits.h:
 
@@ -667,6 +788,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/include/c++/12.2.0/algorithm:
 
+/usr/include/bits/ioctls.h:
+
 /usr/include/c++/12.2.0/debug/debug.h:
 
 /usr/include/bits/local_lim.h:
@@ -681,11 +804,15 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/include/bits/time.h:
 
+pstreams/pstream.h:
+
 /usr/include/c++/12.2.0/bits/utility.h:
 
 /usr/include/c++/12.2.0/ext/type_traits.h:
 
 /usr/include/c++/12.2.0/bits/stl_relops.h:
+
+/usr/include/bits/sigthread.h:
 
 /usr/include/zbar/Scanner.h:
 
@@ -779,6 +906,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/include/c++/12.2.0/climits:
 
+/usr/include/bits/types/__sigval_t.h:
+
 /usr/include/gnu/stubs-64.h:
 
 /usr/include/SFML/Graphics/Font.hpp:
@@ -820,6 +949,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 /usr/include/c++/12.2.0/bits/move.h:
 
 /usr/include/bits/long-double.h:
+
+/usr/include/sys/ucontext.h:
 
 /usr/include/stdc-predef.h:
 
@@ -1009,6 +1140,8 @@ Textbox.h:
 
 /usr/include/c++/12.2.0/bits/ostream_insert.h:
 
+/usr/include/bits/signal_ext.h:
+
 /usr/local/include/opencv4/opencv2/core/cvstd.hpp:
 
 /usr/include/c++/12.2.0/limits:
@@ -1049,9 +1182,13 @@ Textbox.h:
 
 /usr/include/c++/12.2.0/bits/hash_bytes.h:
 
+/usr/include/bits/signum-generic.h:
+
 DisplayImage.cpp:
 
 /usr/include/c++/12.2.0/ext/concurrence.h:
+
+/usr/include/bits/types/sig_atomic_t.h:
 
 /usr/include/bits/types/__fpos_t.h:
 
@@ -1071,6 +1208,8 @@ DisplayImage.cpp:
 
 /usr/include/bits/types/__fpos64_t.h:
 
+/usr/include/bits/environments.h:
+
 /usr/include/c++/12.2.0/clocale:
 
 /usr/include/bits/types/struct_FILE.h:
@@ -1082,6 +1221,8 @@ DisplayImage.cpp:
 /usr/include/c++/12.2.0/bits/stl_iterator.h:
 
 /usr/include/c++/12.2.0/cerrno:
+
+/usr/include/bits/getopt_posix.h:
 
 /usr/include/errno.h:
 
@@ -1144,6 +1285,8 @@ DisplayImage.cpp:
 /usr/include/SFML/System/NonCopyable.hpp:
 
 /usr/include/bits/mathcalls-narrow.h:
+
+/usr/include/bits/types/idtype_t.h:
 
 /usr/include/c++/12.2.0/stdlib.h:
 
@@ -1217,6 +1360,8 @@ DisplayImage.cpp:
 
 /usr/include/bits/setjmp.h:
 
+/usr/include/bits/types/sigval_t.h:
+
 /usr/include/SFML/Graphics/Glyph.hpp:
 
 /usr/include/c++/12.2.0/complex:
@@ -1246,6 +1391,8 @@ DisplayImage.cpp:
 /usr/include/c++/12.2.0/tr1/exp_integral.tcc:
 
 /usr/local/include/opencv4/opencv2/core/types.hpp:
+
+/usr/include/linux/ioctl.h:
 
 /usr/include/bits/fp-logb.h:
 

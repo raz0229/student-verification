@@ -9,13 +9,14 @@ Ctrl + P to Run program from task dependencies
  #include <zbar.h>  
  #include "Textbox.h"
 #include "Button.h"
+#include<string>
+#include"pstreams/pstream.h"
  #include <iostream>  
  using namespace cv;  
  using namespace std;  
  using namespace zbar;  
- int main(int argc, char* argv[])  
+ int main()  
  {  
-
   const int WINDOW_WIDTH = 880;
   const int WINDOW_HEIGHT = 820;
   bool notDetected = true;
@@ -178,6 +179,22 @@ btn1.setPosition({ 350, 670 });
   destroyAllWindows();
   sf::RenderWindow window2(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Student Verification System");
   
+// run a process and create a streambuf that reads its stdout and stderr
+  char url[42] = "curl https://api-fast-flax.vercel.app/";
+  url[38] = student_id[0]; url[39] = student_id[1]; url[40] = student_id[2]; url[41] = student_id[3];
+  redi::ipstream proc(url, redi::pstreams::pstdout | redi::pstreams::pstderr);
+  string line;
+  // read child's stdout
+  while (getline(proc.out(), line))
+  // line is text in json
+    cout << "stdout: " << line << '\n';
+  // if reading stdout stopped at EOF then reset the state:
+  if (proc.eof() && proc.fail())
+    proc.clear();
+  // read child's stderr
+  while (getline(proc.err(), line))
+    cout << "stderr: " << line << '\n';
+
   // if not allowed
   Button btn2("Valid Till: 22:30", { 200, 50 }, 20, sf::Color::Red, sf::Color::White);
   btn2.setFont(font);
@@ -188,7 +205,11 @@ btn1.setPosition({ 350, 670 });
   statusText.setFillColor(sf::Color::Red);
   name.setString("Muhammad Abdullah Zafar");
   name.setFillColor(sf::Color::Black);
-  roll.setString("22F-3777");
+  char ro[8] = "22F-";
+  //ro[4] = student_id[0];ro[5] = student_id[1]; ro[6] = student_id[2]; ro[7] = student_id[3];
+  //cout << "\nro: " << ro;
+  roll.setString(student_id);
+
   roll.setFillColor(sf::Color::Black);
   reason.setString("Medicine");
   reason.setFillColor(sf::Color::Black);
