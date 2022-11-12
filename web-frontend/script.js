@@ -1,5 +1,5 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js'
-import { getFirestore, collection, getDocs } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js'
+import { getFirestore, doc, getDoc, setDoc } from 'https://www.gstatic.com/firebasejs/9.14.0/firebase-firestore.js'
 
       const firebaseConfig = {
     apiKey: "AIzaSyB4hl9a1RPB_MmuqPm_zNmO49Y20qSf9e4",
@@ -25,7 +25,7 @@ document.querySelector('ul').addEventListener('click', (x) => {
     document.querySelector('#touch').checked = false
 })
 
-document.querySelector('.submit').addEventListener('click', (e)=> {
+document.querySelector('.submit').addEventListener('click', async (e)=> {
     e.preventDefault();
     roll = document.querySelector('#roll').value
     if (!selected)
@@ -35,8 +35,26 @@ document.querySelector('.submit').addEventListener('click', (e)=> {
         document.querySelector('#roll').style.borderColor = '#b00';
     }
     else {
-        console.log(selected, roll)
-        document.querySelector('.error').style.display = 'block'
+        document.querySelector('.lds-ellipsis').classList.toggle('hidden')
+        document.querySelector('.submit-text').classList.toggle('hidden')
+        
+        const docRef = doc(db, "students", roll.trim().slice(-4));
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            await setDoc(docRef, {
+                name: docSnap.data().name,
+                reason: selected,
+                created: Math.floor((new Date().getTime())/1000) });
+
+        } else {
+            console.log("No such document!");
+            document.querySelector('.error').style.display = 'block'
+        }
+
+        document.querySelector('.lds-ellipsis').classList.toggle('hidden')
+        document.querySelector('.submit-text').classList.toggle('hidden')
+        
     }
     
 })
