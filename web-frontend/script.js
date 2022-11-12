@@ -58,7 +58,7 @@ year.textContent = new Date().getFullYear();
 
 document.querySelector('ul').addEventListener('click', (x) => {
     selected = x.target.textContent
-    document.querySelector('span').innerText = selected;
+    document.querySelector('.span').innerText = selected;
     document.querySelector('#touch').checked = false
 })
 
