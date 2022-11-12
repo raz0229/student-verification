@@ -183,6 +183,7 @@ btn1.setPosition({ 350, 670 });
   btn2.setFont(font);
   btn2.setPosition({ 335, 800 });
 
+
   statusText.setString("Not Allowed");
   statusText.setFillColor(sf::Color::Red);
   name.setString("Muhammad Abdullah Zafar");
