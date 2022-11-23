@@ -12,9 +12,33 @@ Ctrl + P to Run program from task dependencies
 #include<string>
 #include"pstreams/pstream.h"
  #include <iostream>  
+ #include <stdio.h>
+ #include <jsoncpp/json/json.h>
+#include <jsoncpp/json/reader.h>
+#include <jsoncpp/json/writer.h>
+#include <jsoncpp/json/value.h>
  using namespace cv;  
  using namespace std;  
  using namespace zbar;  
+
+
+string getValue(string strJson, string key) {
+
+ // string strJson = "{\"mykey\" : \"myvalue\"}"; // need escape the quotes
+
+    Json::Value root;   
+    Json::Reader reader;
+    bool parsingSuccessful = reader.parse( strJson.c_str(), root );     //parse process
+    if ( !parsingSuccessful )
+    {
+        cout  << "Failed to parse"
+               << reader.getFormattedErrorMessages();
+        return 0;
+    }
+
+  return root.get(key, "A Default Value if not exists" ).asString();
+}
+
  int main()  
  {  
   const int WINDOW_WIDTH = 880;
@@ -71,7 +95,7 @@ roll.setFont(font2);
 reason.setFont(font2);
 statusText.setFont(font);
 text.setString("Student Verification System");
-text.setCharacterSize(35); // in pixels
+text.setCharacterSize(35); // in pixe5ls
 statusText.setCharacterSize(40);
 roll.setCharacterSize(25);
 name.setCharacterSize(35);
@@ -206,9 +230,9 @@ btn1.setPosition({ 350, 670 });
   name.setString("Muhammad Abdullah Zafar");
   name.setFillColor(sf::Color::Black);
   char ro[8] = "22F-";
-  //ro[4] = student_id[0];ro[5] = student_id[1]; ro[6] = student_id[2]; ro[7] = student_id[3];
+  ro[4] = student_id[0];ro[5] = student_id[1]; ro[6] = student_id[2]; ro[7] = student_id[3];
   //cout << "\nro: " << ro;
-  roll.setString(student_id);
+  roll.setString(ro);
 
   roll.setFillColor(sf::Color::Black);
   reason.setString("Medicine");

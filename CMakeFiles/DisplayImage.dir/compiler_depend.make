@@ -469,8 +469,29 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
   /usr/include/bits/types/struct_iovec.h \
   /usr/include/linux/falloc.h \
   /usr/include/bits/stat.h \
-  /usr/include/bits/struct_stat.h
+  /usr/include/bits/struct_stat.h \
+  /usr/include/jsoncpp/json/json.h \
+  /usr/include/jsoncpp/json/config.h \
+  /usr/include/jsoncpp/json/allocator.h \
+  /usr/include/jsoncpp/json/version.h \
+  /usr/include/jsoncpp/json/json_features.h \
+  /usr/include/jsoncpp/json/forwards.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/value.h \
+  /usr/include/c++/12.2.0/deque \
+  /usr/include/c++/12.2.0/bits/stl_deque.h \
+  /usr/include/c++/12.2.0/bits/deque.tcc \
+  /usr/include/c++/12.2.0/stack \
+  /usr/include/c++/12.2.0/bits/stl_stack.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/reader.h \
+  /usr/include/jsoncpp/json/writer.h \
+  /usr/include/jsoncpp/json/value.h
 
+
+/usr/include/c++/12.2.0/bits/deque.tcc:
+
+/usr/include/jsoncpp/json/allocator.h:
 
 /usr/include/bits/struct_stat.h:
 
@@ -479,6 +500,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 /usr/include/bits/types/struct_iovec.h:
 
 /usr/include/bits/fcntl-linux.h:
+
+/usr/include/jsoncpp/json/json.h:
 
 /usr/include/bits/fcntl.h:
 
@@ -542,6 +565,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/include/c++/12.2.0/map:
 
+/usr/include/c++/12.2.0/stack:
+
 /usr/include/bits/posix_opt.h:
 
 /usr/include/SFML/Graphics/Texture.hpp:
@@ -566,9 +591,13 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/include/SFML/Graphics/Export.hpp:
 
+/usr/include/jsoncpp/json/config.h:
+
 /usr/include/bits/types/struct_sigstack.h:
 
 /usr/include/SFML/Graphics/BlendMode.hpp:
+
+/usr/include/jsoncpp/json/reader.h:
 
 /usr/include/SFML/Window/WindowHandle.hpp:
 
@@ -642,6 +671,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/local/include/opencv4/opencv2/imgproc/segmentation.hpp:
 
+/usr/include/jsoncpp/json/json_features.h:
+
 /usr/include/bits/siginfo-consts-arch.h:
 
 /usr/include/SFML/Graphics/Color.hpp:
@@ -697,6 +728,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 /usr/include/c++/12.2.0/bits/streambuf_iterator.h:
 
 /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/ctype_base.h:
+
+/usr/include/jsoncpp/json/forwards.h:
 
 /usr/include/bits/wctype-wchar.h:
 
@@ -792,6 +825,8 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 
 /usr/include/c++/12.2.0/debug/debug.h:
 
+/usr/include/c++/12.2.0/deque:
+
 /usr/include/bits/local_lim.h:
 
 /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/c++allocator.h:
@@ -860,6 +895,8 @@ pstreams/pstream.h:
 
 /usr/include/c++/12.2.0/cstring:
 
+/usr/include/c++/12.2.0/bits/stl_stack.h:
+
 /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/cpu_defines.h:
 
 /usr/include/bits/types/struct_timeval.h:
@@ -919,6 +956,8 @@ pstreams/pstream.h:
 /usr/include/c++/12.2.0/cctype:
 
 /usr/include/c++/12.2.0/x86_64-pc-linux-gnu/bits/c++config.h:
+
+/usr/include/c++/12.2.0/bits/stl_deque.h:
 
 /usr/include/c++/12.2.0/bits/shared_ptr.h:
 
@@ -1078,6 +1117,8 @@ Button.h:
 
 /usr/include/bits/types/timer_t.h:
 
+/usr/include/jsoncpp/json/writer.h:
+
 /usr/include/c++/12.2.0/cstdio:
 
 /usr/local/include/opencv4/opencv2/core/utility.hpp:
@@ -1131,6 +1172,8 @@ Textbox.h:
 /usr/include/c++/12.2.0/bits/cxxabi_init_exception.h:
 
 /usr/include/locale.h:
+
+/usr/include/jsoncpp/json/version.h:
 
 /usr/include/c++/12.2.0/ctime:
 
@@ -1293,6 +1336,8 @@ DisplayImage.cpp:
 /usr/include/c++/12.2.0/tr1/gamma.tcc:
 
 /usr/include/c++/12.2.0/tr1/special_function_util.h:
+
+/usr/include/jsoncpp/json/value.h:
 
 /usr/include/c++/12.2.0/iosfwd:
 

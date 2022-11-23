@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/raz0229/Documents/build/test/CMAKE_SOURCE_DIR/ExternalLibraries/SFML/include -isystem /usr/local/include/opencv4
 
-CXX_FLAGS = -lsfml-graphics -lsfml-window -lsfml-system
+CXX_FLAGS = -lsfml-graphics -lsfml-window -lsfml-system -ljsoncpp
 

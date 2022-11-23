@@ -354,4 +354,15 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: \
  /usr/include/sys/ttydefaults.h /usr/include/fcntl.h \
  /usr/include/bits/fcntl.h /usr/include/bits/fcntl-linux.h \
  /usr/include/bits/types/struct_iovec.h /usr/include/linux/falloc.h \
- /usr/include/bits/stat.h /usr/include/bits/struct_stat.h
+ /usr/include/bits/stat.h /usr/include/bits/struct_stat.h \
+ /usr/include/jsoncpp/json/json.h /usr/include/jsoncpp/json/config.h \
+ /usr/include/jsoncpp/json/allocator.h \
+ /usr/include/jsoncpp/json/version.h \
+ /usr/include/jsoncpp/json/json_features.h \
+ /usr/include/jsoncpp/json/forwards.h /usr/include/jsoncpp/json/reader.h \
+ /usr/include/jsoncpp/json/value.h /usr/include/c++/12.2.0/deque \
+ /usr/include/c++/12.2.0/bits/stl_deque.h \
+ /usr/include/c++/12.2.0/bits/deque.tcc /usr/include/c++/12.2.0/stack \
+ /usr/include/c++/12.2.0/bits/stl_stack.h \
+ /usr/include/jsoncpp/json/writer.h /usr/include/jsoncpp/json/reader.h \
+ /usr/include/jsoncpp/json/writer.h /usr/include/jsoncpp/json/value.h

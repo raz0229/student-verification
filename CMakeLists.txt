@@ -6,6 +6,6 @@ include_directories(CMAKE_SOURCE_DIR/ExternalLibraries/SFML/include)
 
 find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 include_directories(${SFML_INCLUDE_DIRS})
-add_compile_options( -lsfml-graphics -lsfml-window -lsfml-system )
+add_compile_options( -lsfml-graphics -lsfml-window -lsfml-system -ljsoncpp )
 add_executable( DisplayImage DisplayImage.cpp )
-target_link_libraries( DisplayImage ${OpenCV_LIBS} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} zbar sfml-system sfml-window sfml-graphics sfml-audio sfml-network)
+target_link_libraries( DisplayImage ${OpenCV_LIBS} ${SFML_LIBRARIES} ${SFML_DEPENDENCIES} zbar sfml-system sfml-window sfml-graphics sfml-audio sfml-network jsoncpp )
