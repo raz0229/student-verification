@@ -421,6 +421,10 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
   Textbox.h \
   /usr/include/c++/12.2.0/iostream \
   Button.h \
+  /usr/include/c++/12.2.0/chrono \
+  /usr/include/c++/12.2.0/thread \
+  /usr/include/c++/12.2.0/bits/std_thread.h \
+  /usr/include/c++/12.2.0/bits/this_thread_sleep.h \
   pstreams/pstream.h \
   /usr/include/sys/wait.h \
   /usr/include/signal.h \
@@ -544,6 +548,10 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 /usr/include/fcntl.h:
 
 /usr/include/sys/wait.h:
+
+/usr/include/c++/12.2.0/thread:
+
+/usr/include/c++/12.2.0/chrono:
 
 /usr/include/c++/12.2.0/iostream:
 
@@ -1071,6 +1079,8 @@ pstreams/pstream.h:
 
 /usr/include/c++/12.2.0/tr1/poly_hermite.tcc:
 
+/usr/include/c++/12.2.0/bits/this_thread_sleep.h:
+
 /usr/local/include/opencv4/opencv2/opencv_modules.hpp:
 
 /usr/include/pthread.h:
@@ -1362,6 +1372,8 @@ DisplayImage.cpp:
 /usr/include/c++/12.2.0/bits/align.h:
 
 /usr/include/c++/12.2.0/bit:
+
+/usr/include/c++/12.2.0/bits/std_thread.h:
 
 /usr/include/bits/waitstatus.h:
 

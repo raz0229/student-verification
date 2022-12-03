@@ -7,8 +7,8 @@
     <title>FAST Gate Pass</title>
     <link rel="icon" type="image/x-icon" href="./assets/favicon.png">
     <link rel="stylesheet" href="./style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-    <script type="module" src="./script.js" defer></script>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling/lib/qr-code-styling.js"></script>
+    <script type="module" src="./script.js"></script>
 </head>
 <body>
     <div id="overlay"></div>
@@ -56,14 +56,5 @@
         © Copyright <span id="year"></span> FAST CFD. All rights reserved.
     </p>
 </body>
-<script>
-   var qrcode = new QRCode(document.querySelector(".qr-code"), {
-        text: `${localStorage.getItem('roll')}`,
-        width: 250, //default 128
-        height: 250,
-        colorDark : "#000000",
-        colorLight : "#ffffff",
-        correctLevel : QRCode.CorrectLevel.H
-    });
-</script>
+
 </html>

@@ -6,6 +6,20 @@ const toggleModal = () => {
     document.querySelector('.qr').classList.toggle('hidden')
 
     let min, sec;
+    const qrCode = new QRCodeStyling({
+          width: 250,
+          height: 250,
+          data: `${localStorage.getItem('roll')}`,
+          image: "./assets/raz0229_small.gif",
+          dotsOptions: {
+            color: "#000",
+            type: "square"
+          },
+          backgroundOptions: {
+            color: "#FFFFFF",
+          }
+        });
+    qrCode.append(document.querySelector(".qr-code"));
 
     setInterval(()=>{
         const n = new Date().getTime() - (parseInt(localStorage.getItem('created'))*1000)

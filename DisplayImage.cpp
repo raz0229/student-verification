@@ -10,6 +10,8 @@ Ctrl + P to Run program from task dependencies
  #include "Textbox.h"
 #include "Button.h"
 #include<string>
+#include<chrono>
+#include<thread>
 #include"pstreams/pstream.h"
  #include <iostream>  
  #include <stdio.h>
@@ -20,11 +22,11 @@ Ctrl + P to Run program from task dependencies
  using namespace cv;  
  using namespace std;  
  using namespace zbar;  
+ using namespace std::this_thread; // sleep_for, sleep_until
+using namespace std::chrono; // nanoseconds, system_clock, seconds
 
 
 string getValue(string strJson, string key) {
-
- // string strJson = "{\"mykey\" : \"myvalue\"}"; // need escape the quotes
 
     Json::Value root;   
     Json::Reader reader;
@@ -156,11 +158,13 @@ btn1.setPosition({ 350, 670 });
      symbol != image.symbol_end();   
      ++symbol) {   
          vector<Point> vp;   
-     // do something useful with results   
+     // do something useful with results
+     cout << "symbol->get_data(): " << symbol->get_data();   
      student_id = symbol->get_data();
      cout << "decoded " << symbol->get_type_name()  << " symbol \"" << student_id << '"' <<" "<< endl;
+     //sleep_for(seconds(1));
       notDetected = false;   
-      //window.close();
+      
      
 	int n = symbol->get_location_size();   
        for(int i=0;i<n;i++){   
@@ -204,14 +208,21 @@ btn1.setPosition({ 350, 670 });
   sf::RenderWindow window2(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "Student Verification System");
   
 // run a process and create a streambuf that reads its stdout and stderr
-  char url[42] = "curl https://api-fast-flax.vercel.app/";
-  url[38] = student_id[0]; url[39] = student_id[1]; url[40] = student_id[2]; url[41] = student_id[3];
+ // char url[42] = "curl https://api-fast-flax.vercel.app/";
+ string url = "curl https://api-fast-flax.vercel.app/";
+  //url[38] = student_id[0]; url[39] = student_id[1]; url[40] = student_id[2]; url[41] = student_id[3];
+  url = url + student_id;
   redi::ipstream proc(url, redi::pstreams::pstdout | redi::pstreams::pstderr);
   string line;
   // read child's stdout
   while (getline(proc.out(), line))
-  // line is text in json
+  {
+    // line is text in json
     cout << "stdout: " << line << '\n';
+  }
+  string fName = getValue(line, "name");
+  string fReason = getValue(line, "reason");
+  
   // if reading stdout stopped at EOF then reset the state:
   if (proc.eof() && proc.fail())
     proc.clear();
@@ -227,15 +238,16 @@ btn1.setPosition({ 350, 670 });
 
   statusText.setString("Not Allowed");
   statusText.setFillColor(sf::Color::Red);
-  name.setString("Muhammad Abdullah Zafar");
+  name.setString(fName);
   name.setFillColor(sf::Color::Black);
-  char ro[8] = "22F-";
-  ro[4] = student_id[0];ro[5] = student_id[1]; ro[6] = student_id[2]; ro[7] = student_id[3];
+  //char ro[8] = "22F-";
+  //ro[4] = student_id[0];ro[5] = student_id[1]; ro[6] = student_id[2]; ro[7] = student_id[3];
+  string ro = "22F-" + student_id;
   //cout << "\nro: " << ro;
   roll.setString(ro);
 
   roll.setFillColor(sf::Color::Black);
-  reason.setString("Medicine");
+  reason.setString(fReason);
   reason.setFillColor(sf::Color::Black);
 
   while(window2.isOpen()) {

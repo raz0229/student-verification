@@ -329,6 +329,9 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: \
  /home/raz0229/Documents/build/test/Textbox.h \
  /usr/include/c++/12.2.0/iostream \
  /home/raz0229/Documents/build/test/Button.h \
+ /usr/include/c++/12.2.0/chrono /usr/include/c++/12.2.0/thread \
+ /usr/include/c++/12.2.0/bits/std_thread.h \
+ /usr/include/c++/12.2.0/bits/this_thread_sleep.h \
  /home/raz0229/Documents/build/test/pstreams/pstream.h \
  /usr/include/sys/wait.h /usr/include/signal.h \
  /usr/include/bits/signum-generic.h /usr/include/bits/signum-arch.h \
