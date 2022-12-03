@@ -41,8 +41,37 @@ string getValue(string strJson, string key) {
   return root.get(key, "A Default Value if not exists" ).asString();
 }
 
+string printRemainingTime(double created) {
+  
+  int min, sec;
+  string res;
+
+  milliseconds ms = duration_cast< milliseconds >(
+    system_clock::now().time_since_epoch()
+  );
+
+  double currentTime = ms.count()/1000;
+  double n = currentTime - created;
+
+  const int seconds = n;
+  min = 30 - (seconds/60);
+  sec = 60 - (seconds%60);
+
+        if (min < 0) {
+            min = 0;
+            sec = 0;
+        }
+
+  cout << "Minutes: " << min << endl;
+  cout << "Seconds: " << sec << endl;
+  res = to_string(min) + ":" + to_string(sec);
+
+  return res;
+}
+
  int main()  
  {  
+  cout << printRemainingTime(1668239654);
   const int WINDOW_WIDTH = 880;
   const int WINDOW_HEIGHT = 820;
   bool notDetected = true;
