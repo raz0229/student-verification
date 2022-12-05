@@ -134,7 +134,7 @@ sf::Image image, pfp, allowed, notAllowed;
         sprite.setTexture(texture);  
         sp2.setTexture(t2);
         spa.setTexture(al);
-        //spn.setTexture(nal);
+        spn.setTexture(nal);
 
 if (!font.loadFromFile("arial.ttf") || !(font2.loadFromFile("quicksand.ttf")))
 {
@@ -311,10 +311,10 @@ btn1.setPosition({ 350, 670 });
     window2.clear(sf::Color::White);
   window2.draw(text);
   window2.draw(sprite);
-  if (!isAllowed)
-    window2.draw(spn);
-  else
+  if (isAllowed)
     window2.draw(spa);
+  else
+    window2.draw(spn);
   window2.draw(statusText);
   window2.draw(name);
   window2.draw(roll);

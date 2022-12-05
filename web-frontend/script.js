@@ -25,6 +25,8 @@ const toggleModal = () => {
         const n = new Date().getTime() - (parseInt(localStorage.getItem('created'))*1000)
         const seconds = n/1000
 
+        let secPrefix, minPrefix;
+
         min = 30 - Math.floor(seconds/60)
         sec = 60 - Math.floor(seconds%60)
 
@@ -33,8 +35,11 @@ const toggleModal = () => {
             sec = '00';
         }
 
-        document.querySelector('#min').innerText = min;
-        document.querySelector('#sec').innerText = sec;
+        secPrefix = (sec < 10) ? "0" : "";
+        minPrefix = (min < 10) ? "0" : "";
+
+        document.querySelector('#min').innerText = `${minPrefix}${min}`;
+        document.querySelector('#sec').innerText = `${secPrefix}${sec}`;
         
 
     },1000)
