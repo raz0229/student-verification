@@ -23,6 +23,10 @@ public:
 		text.setFont(fonts);
 	}
 
+	void setText(std::string str) {
+		text.setString(str);
+	}
+
 	void setBackColor(sf::Color color) {
 		button.setFillColor(color);
 	}

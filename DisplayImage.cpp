@@ -44,7 +44,7 @@ string getValue(string strJson, string key) {
 string printRemainingTime(double created) {
   
   int min, sec;
-  string res;
+  string res = "", minPrefix = "", secPrefix = "";
 
   milliseconds ms = duration_cast< milliseconds >(
     system_clock::now().time_since_epoch()
@@ -62,16 +62,37 @@ string printRemainingTime(double created) {
             sec = 0;
         }
 
-  cout << "Minutes: " << min << endl;
-  cout << "Seconds: " << sec << endl;
-  res = to_string(min) + ":" + to_string(sec);
+  secPrefix = (sec < 10) ? "0" : "";
+  minPrefix = (min < 10) ? "0" : "";
+
+  res = "Valid Till: " + minPrefix + to_string(min) + ":" + secPrefix + to_string(sec);
+  cout << "\nin function: res: " << res << endl;
 
   return res;
 }
 
+bool isTimeLeft(double created) {
+  
+  int min, sec;
+
+  milliseconds ms = duration_cast< milliseconds >(
+    system_clock::now().time_since_epoch()
+  );
+
+  double currentTime = ms.count()/1000;
+  double n = currentTime - created;
+
+  const int seconds = n;
+  min = 30 - (seconds/60);
+
+        if (min < 0) {
+            return 0;
+        }
+  return 1;
+}
+
  int main()  
  {  
-  cout << printRemainingTime(1668239654);
   const int WINDOW_WIDTH = 880;
   const int WINDOW_HEIGHT = 820;
   bool notDetected = true;
@@ -113,7 +134,7 @@ sf::Image image, pfp, allowed, notAllowed;
         sprite.setTexture(texture);  
         sp2.setTexture(t2);
         spa.setTexture(al);
-        spn.setTexture(nal);
+        //spn.setTexture(nal);
 
 if (!font.loadFromFile("arial.ttf") || !(font2.loadFromFile("quicksand.ttf")))
 {
@@ -198,8 +219,8 @@ btn1.setPosition({ 350, 670 });
 	int n = symbol->get_location_size();   
        for(int i=0;i<n;i++){   
          vp.push_back(Point(symbol->get_location_x(i),symbol->get_location_y(i)));   
-       }   
-       RotatedRect r = minAreaRect(vp);   
+       }
+       RotatedRect r = minAreaRect(vp);
        Point2f pts[4];   
        r.points(pts);   
        for(int i=0;i<4;i++){   
@@ -251,6 +272,9 @@ btn1.setPosition({ 350, 670 });
   }
   string fName = getValue(line, "name");
   string fReason = getValue(line, "reason");
+  double created = stod(getValue(line, "created"));
+  string remTime = printRemainingTime(created);
+  bool isAllowed = isTimeLeft(created);
   
   // if reading stdout stopped at EOF then reset the state:
   if (proc.eof() && proc.fail())
@@ -260,13 +284,16 @@ btn1.setPosition({ 350, 670 });
     cout << "stderr: " << line << '\n';
 
   // if not allowed
-  Button btn2("Valid Till: 22:30", { 200, 50 }, 20, sf::Color::Red, sf::Color::White);
+  if (!isAllowed) {
+    statusText.setString("Not Allowed");
+    statusText.setFillColor(sf::Color::Red);
+  } else {
+    statusText.setString("Allowed");
+    statusText.setFillColor(sf::Color::Green);
+  }
+  Button btn2(remTime, { 200, 50 }, 20, sf::Color::Red, sf::Color::White);
   btn2.setFont(font);
   btn2.setPosition({ 335, 800 });
-
-
-  statusText.setString("Not Allowed");
-  statusText.setFillColor(sf::Color::Red);
   name.setString(fName);
   name.setFillColor(sf::Color::Black);
   //char ro[8] = "22F-";
@@ -279,15 +306,25 @@ btn1.setPosition({ 350, 670 });
   reason.setString(fReason);
   reason.setFillColor(sf::Color::Black);
 
+ // string txt = printRemainingTime(stod(getValue(line, "created")));
   while(window2.isOpen()) {
     window2.clear(sf::Color::White);
   window2.draw(text);
   window2.draw(sprite);
-  window2.draw(spn);
+  if (!isAllowed)
+    window2.draw(spn);
+  else
+    window2.draw(spa);
   window2.draw(statusText);
   window2.draw(name);
   window2.draw(roll);
   window2.draw(reason);
+
+  // update validity in real-time
+  // this gives error
+  //btn2.setText("Valid Till: " + );
+  //remTime = printRemainingTime(stod(getValue(line, "created")));
+  //btn2.setText(remTime);
   btn2.drawTo(window2);
   window2.display();
   }
