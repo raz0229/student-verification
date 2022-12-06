@@ -117,41 +117,41 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named DisplayImage
+# Target rules for targets named main
 
 # Build rule for target.
-DisplayImage: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DisplayImage
-.PHONY : DisplayImage
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
 
 # fast build rule for target.
-DisplayImage/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/build
-.PHONY : DisplayImage/fast
+main/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+.PHONY : main/fast
 
-DisplayImage.o: DisplayImage.cpp.o
-.PHONY : DisplayImage.o
+main.o: main.cpp.o
+.PHONY : main.o
 
 # target to build an object file
-DisplayImage.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o
-.PHONY : DisplayImage.cpp.o
+main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.o
+.PHONY : main.cpp.o
 
-DisplayImage.i: DisplayImage.cpp.i
-.PHONY : DisplayImage.i
+main.i: main.cpp.i
+.PHONY : main.i
 
 # target to preprocess a source file
-DisplayImage.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/DisplayImage.cpp.i
-.PHONY : DisplayImage.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-DisplayImage.s: DisplayImage.cpp.s
-.PHONY : DisplayImage.s
+main.s: main.cpp.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-DisplayImage.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/DisplayImage.cpp.s
-.PHONY : DisplayImage.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -161,10 +161,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... DisplayImage"
-	@echo "... DisplayImage.o"
-	@echo "... DisplayImage.i"
-	@echo "... DisplayImage.s"
+	@echo "... main"
+	@echo "... main.o"
+	@echo "... main.i"
+	@echo "... main.s"
 .PHONY : help
 
 

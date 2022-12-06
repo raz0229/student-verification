@@ -63,7 +63,7 @@ CMAKE_BINARY_DIR = /home/raz0229/Documents/build/test
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/DisplayImage.dir/all
+all: CMakeFiles/main.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -71,34 +71,34 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/DisplayImage.dir/clean
+clean: CMakeFiles/main.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/DisplayImage.dir
+# Target rules for target CMakeFiles/main.dir
 
 # All Build rule for target.
-CMakeFiles/DisplayImage.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/raz0229/Documents/build/test/CMakeFiles --progress-num=1,2 "Built target DisplayImage"
-.PHONY : CMakeFiles/DisplayImage.dir/all
+CMakeFiles/main.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/raz0229/Documents/build/test/CMakeFiles --progress-num=1,2 "Built target main"
+.PHONY : CMakeFiles/main.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/DisplayImage.dir/rule: cmake_check_build_system
+CMakeFiles/main.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/raz0229/Documents/build/test/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/DisplayImage.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/raz0229/Documents/build/test/CMakeFiles 0
-.PHONY : CMakeFiles/DisplayImage.dir/rule
+.PHONY : CMakeFiles/main.dir/rule
 
 # Convenience name for target.
-DisplayImage: CMakeFiles/DisplayImage.dir/rule
-.PHONY : DisplayImage
+main: CMakeFiles/main.dir/rule
+.PHONY : main
 
 # clean rule for target.
-CMakeFiles/DisplayImage.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DisplayImage.dir/build.make CMakeFiles/DisplayImage.dir/clean
-.PHONY : CMakeFiles/DisplayImage.dir/clean
+CMakeFiles/main.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/clean
+.PHONY : CMakeFiles/main.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

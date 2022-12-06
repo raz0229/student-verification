@@ -10,7 +10,8 @@ Ctrl + P to Run program from task dependencies
  #include "Textbox.h"
 #include "Button.h"
 #include<string>
-#include<chrono>
+#include<cstdio>
+#include<ctime>
 #include<thread>
 #include"pstreams/pstream.h"
  #include <iostream>  
@@ -89,6 +90,16 @@ bool isTimeLeft(double created) {
             return 0;
         }
   return 1;
+}
+
+void setTimeout(int delay) {
+
+  delay *= CLOCKS_PER_SEC;
+  clock_t now = clock();
+
+  while(clock() - now <delay);
+    cout<<"Message Show after delay that you entered"<<endl;
+
 }
 
  int main()  
@@ -327,6 +338,10 @@ btn1.setPosition({ 350, 670 });
   //btn2.setText(remTime);
   btn2.drawTo(window2);
   window2.display();
+
+  // add 10 seconds delay before next scan
+  setTimeout(10);
+  break;
   }
   
    return 0;  

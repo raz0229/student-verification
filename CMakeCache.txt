@@ -148,7 +148,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=DisplayImage
+CMAKE_PROJECT_NAME:STATIC=main
 
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
@@ -229,6 +229,15 @@ SFML_DIR:PATH=/usr/lib64/cmake/SFML
 
 //Path to a file.
 SFML_DOC_DIR:PATH=SFML_DOC_DIR-NOTFOUND
+
+//Value Computed by CMake
+main_BINARY_DIR:STATIC=/home/raz0229/Documents/build/test
+
+//Value Computed by CMake
+main_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+main_SOURCE_DIR:STATIC=/home/raz0229/Documents/build/test
 
 
 ########################

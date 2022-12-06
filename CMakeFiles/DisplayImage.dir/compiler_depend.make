@@ -421,7 +421,6 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
   Textbox.h \
   /usr/include/c++/12.2.0/iostream \
   Button.h \
-  /usr/include/c++/12.2.0/chrono \
   /usr/include/c++/12.2.0/thread \
   /usr/include/c++/12.2.0/bits/std_thread.h \
   /usr/include/c++/12.2.0/bits/this_thread_sleep.h \
@@ -550,8 +549,6 @@ CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: DisplayImage.cpp \
 /usr/include/sys/wait.h:
 
 /usr/include/c++/12.2.0/thread:
-
-/usr/include/c++/12.2.0/chrono:
 
 /usr/include/c++/12.2.0/iostream:
 

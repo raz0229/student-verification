@@ -1,6 +1,5 @@
-CMakeFiles/DisplayImage.dir/DisplayImage.cpp.o: \
- /home/raz0229/Documents/build/test/DisplayImage.cpp \
- /usr/include/stdc-predef.h \
+CMakeFiles/main.dir/main.cpp.o: \
+ /home/raz0229/Documents/build/test/main.cpp /usr/include/stdc-predef.h \
  /usr/local/include/opencv4/opencv2/highgui/highgui.hpp \
  /usr/local/include/opencv4/opencv2/highgui.hpp \
  /usr/local/include/opencv4/opencv2/core.hpp \
